@@ -16,12 +16,28 @@ public class Movement : CustomMonoBehaviorWrapper
 
     private void OnEnable()
     {
-        InputChannelSo.OnEventRaised += (input) => setMoveDirection(input);
+        try
+        {
+            InputChannelSo.OnEventRaised += (input) => setMoveDirection(input);
+        }
+        catch (System.Exception)
+        {
+            
+            throw;
+        }
     }
 
     private void OnDisable()
     {
-        InputChannelSo.OnEventRaised -= (input) => setMoveDirection(input);
+        try
+        {
+            InputChannelSo.OnEventRaised -= (input) => setMoveDirection(input);
+        }
+        catch (System.Exception)
+        {
+            
+            throw;
+        }
     }
 
     private void FixedUpdate()

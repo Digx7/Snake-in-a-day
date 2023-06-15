@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Follower : CustomMonoBehaviorWrapper
 {
+    [SerializeField] private Movement movement;
     [SerializeField] private Transform objectToFollow;
     [SerializeField] private float followDistance;
-    [SerializeField] private float followSpeed;
 
     private float distanceToTarget{get {return Vector3.Distance(objectToFollow.position, transform.position);}}
 
@@ -33,11 +33,7 @@ public class Follower : CustomMonoBehaviorWrapper
 
             Log("Direction to target is " + directionTowardsTarget);
 
-            Vector3 delta = (directionTowardsTarget * followSpeed);
-
-            Log("Moved by: " + delta);
-
-            transform.position += delta;  // move in that direction;
+            movement.setMoveDirection(directionTowardsTarget);
 
             yield return new WaitForFixedUpdate();
         }
