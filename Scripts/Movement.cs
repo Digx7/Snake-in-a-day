@@ -23,7 +23,6 @@ public class Movement : CustomMonoBehaviorWrapper
         catch (System.Exception)
         {
             
-            throw;
         }
     }
 
@@ -35,8 +34,7 @@ public class Movement : CustomMonoBehaviorWrapper
         }
         catch (System.Exception)
         {
-            
-            throw;
+
         }
     }
 

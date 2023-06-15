@@ -38,6 +38,8 @@ public class Follower : CustomMonoBehaviorWrapper
             yield return new WaitForFixedUpdate();
         }
 
+        movement.setMoveDirection(Vector2.zero);
+
         isMoving = false;
     }
 }
