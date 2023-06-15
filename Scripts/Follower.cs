@@ -5,7 +5,7 @@ using UnityEngine;
 public class Follower : CustomMonoBehaviorWrapper
 {
     [SerializeField] private Movement movement;
-    [SerializeField] private Transform objectToFollow;
+    public Transform objectToFollow {private get; set;}
     [SerializeField] private float followDistance;
 
     private float distanceToTarget{get {return Vector3.Distance(objectToFollow.position, transform.position);}}
@@ -16,8 +16,16 @@ public class Follower : CustomMonoBehaviorWrapper
     {
         if(!isMoving)
         {
-            if(distanceToTarget > followDistance) StartCoroutine(follow());
+            if(distanceToTarget > followDistance)
+            {
+                StartCoroutine(follow());
+            }
         }
+
+        Vector3 targetPosition = objectToFollow.transform.position;
+        targetPosition.z = transform.position.z; // Maintain the same z-axis position
+
+        transform.right = targetPosition - transform.position;
     }
 
     private IEnumerator follow()
