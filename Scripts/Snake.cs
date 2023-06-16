@@ -5,35 +5,43 @@ using UnityEngine;
 public class Snake : CustomMonoBehaviorWrapper
 {
     [SerializeField] private int ID;
+    public void setID(int ID)
+    {
+        this.ID = ID;
+    }
     [SerializeField] private Color color;
+    public void setColor(Color color)
+    {
+        this.color = color;
+        Refresh();
+    }
     [SerializeField] private Gradient trailGradient;
+    public void setTrailGradient(Gradient trailGradient)
+    {
+        this.trailGradient = trailGradient;
+        Refresh();
+    }
     [SerializeField] private List<Transform> allSegments;
     [SerializeField] private GameObject segmentPrefab;
     [SerializeField] private GameObject deathParticlesPrefab;
-
-    [SerializeField] private VoidEventChannelSO growRequestChannelSo;
     [SerializeField] private IntEventChannelSO playerDeathChannelSo;
     [SerializeField] private IntEventChannelSO playerGotFruitChannelSo;
 
     private void Awake()
     {
         allSegments.Add(this.transform);
-        this.GetComponent<SpriteRenderer>().color = color;
-
-        this.GetComponent<TrailRenderer>().colorGradient = trailGradient;
+        
+        Refresh();
 
         this.GetComponent<CollisionDetector>().OnHit.AddListener(Kill);
         this.GetComponent<CollisionDetector>().OnRecieveFruit.AddListener(AddSegment);
     }
 
-    private void OnEnable()
+    private void Refresh()
     {
-        // growRequestChannelSo.OnEventRaised += () => AddSegment();
-    }
+        this.GetComponent<SpriteRenderer>().color = color;
 
-    private void OnDisable()
-    {
-        // growRequestChannelSo.OnEventRaised -= () => AddSegment();
+        this.GetComponent<TrailRenderer>().colorGradient = trailGradient;
     }
 
     public void AddSegment()

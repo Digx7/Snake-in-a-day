@@ -10,16 +10,16 @@ public class FruitSpawner : CustomMonoBehaviorWrapper
 
     private void OnEnable()
     {
-        playerGotFruitChannel.OnEventRaised += (i) => SpawnFruit();
+        playerGotFruitChannel.OnEventRaised += (ID) => SpawnFruit(ID);
     }
 
     private void OnDisable()
     {
-        playerGotFruitChannel.OnEventRaised += (i) => SpawnFruit();
+        playerGotFruitChannel.OnEventRaised += (ID) => SpawnFruit(ID);
     }
 
-    public void SpawnFruit(){
-        Instantiate(fruitPrefab, randomPosition(), Quaternion.identity);
+    public void SpawnFruit(int ID = GlobalConstants.NULL_PLAYER_ID){
+        if(ID == GlobalConstants.NULL_PLAYER_ID) Instantiate(fruitPrefab, randomPosition(), Quaternion.identity);
     }
 
     private Vector3 randomPosition()

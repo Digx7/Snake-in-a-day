@@ -14,6 +14,20 @@ public class Movement : CustomMonoBehaviorWrapper
     }
     [SerializeField] private Vector2 deadZone;
     [SerializeField] private Vector2EventChannelSO InputChannelSo;
+    public void setInputChannelSo(Vector2EventChannelSO inputChannelSo)
+    {
+        try
+        {
+           InputChannelSo.OnEventRaised -= (input) => setMoveDirection(input); 
+        }
+        catch (System.Exception)
+        {
+
+        }
+
+        this.InputChannelSo = inputChannelSo;
+        this.InputChannelSo.OnEventRaised += (input) => setMoveDirection(input);
+    }
 
     private void OnEnable()
     {

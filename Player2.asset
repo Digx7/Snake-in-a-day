@@ -19,3 +19,5 @@ MonoBehaviour:
   playerDeathChannelSo: {fileID: 11400000, guid: a82feb91611db804e9994dbaac276f30, type: 2}
   playerGotFruitChannelSo: {fileID: 11400000, guid: 657f39e1f94831d4bb058d5d2e48ed62, type: 2}
   playerLostChannelSo: {fileID: 11400000, guid: aeeb63055c9af7d4e9dbaf8e6cef9b88, type: 2}
+  playerScoreUpdateChannelSO: {fileID: 11400000, guid: c43400f8c26281b449561d5a9c973252, type: 2}
+  playerLivesUpdateChannelSO: {fileID: 11400000, guid: 5e2eb8b8ec5b2ff439a054dc08cbcf19, type: 2}

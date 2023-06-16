@@ -9,12 +9,15 @@ public class Player : ScriptableObject
     [SerializeField] private int score;
     [SerializeField] private int multiplier = 1;
     [SerializeField] private int lives;
-
     [SerializeField] private IntEventChannelSO playerDeathChannelSo;
     [SerializeField] private IntEventChannelSO playerGotFruitChannelSo;
     [SerializeField] private IntEventChannelSO playerLostChannelSo;
+    [SerializeField] private PlayerValueUpdateChannelSO playerScoreUpdateChannelSO;
+    [SerializeField] private PlayerValueUpdateChannelSO playerLivesUpdateChannelSO;
 
-    private const int FRUIT_VALUE = 10;
+    public Color color;
+    public Gradient trailGradient;
+    public Vector2EventChannelSO movementInputChannelSo;
 
 
     private void OnEnable()
@@ -27,7 +30,8 @@ public class Player : ScriptableObject
     {
         if(ID == this.ID)
         {
-            score += (FRUIT_VALUE * multiplier);
+            score += (GlobalConstants.FRUIT_VALUE * multiplier);
+            playerScoreUpdateChannelSO.RaiseEvent(ID, score);
         }
     }
 
@@ -36,6 +40,7 @@ public class Player : ScriptableObject
         if(ID == this.ID)
         {
             lives--;
+            playerLivesUpdateChannelSO.RaiseEvent(ID, lives);
             if(lives == 0) playerLostChannelSo.RaiseEvent(ID);
         }
     }
@@ -52,9 +57,9 @@ public class Player : ScriptableObject
 
     public void Reset()
     {
-        score = 0;
-        multiplier = 1;
-        lives = 3;
+        this.score = 0;
+        this.multiplier = 1;
+        this.lives = 3;
     }
 
 }
