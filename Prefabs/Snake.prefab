@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7835935419398947972}
   m_Layer: 0
   m_Name: Snake
-  m_TagString: Untagged
+  m_TagString: Segment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,6 +180,7 @@ MonoBehaviour:
   deathParticlesPrefab: {fileID: 3256675830577454385, guid: 2ae7e4ab20bdad64295e293454771070, type: 3}
   growRequestChannelSo: {fileID: 11400000, guid: 687a1dceb17b71d4faf46469000dd42e, type: 2}
   playerDeathChannelSo: {fileID: 11400000, guid: a82feb91611db804e9994dbaac276f30, type: 2}
+  playerGotFruitChannelSo: {fileID: 11400000, guid: 657f39e1f94831d4bb058d5d2e48ed62, type: 2}
 --- !u!96 &7835935419398947973
 TrailRenderer:
   serializedVersion: 2
@@ -301,6 +302,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowLogging: 1
+  fruitTag: Fruit
+  dangerTag: Segment
+  OnRecieveFruit:
+    m_PersistentCalls:
+      m_Calls: []
   OnHit:
     m_PersistentCalls:
       m_Calls: []

@@ -22,24 +22,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Grow_Player_1",
-                    "type": "Button",
-                    "id": "4926b276-cf4a-4df6-b4b5-5eb2362cb96a",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Grow_Player_2",
-                    "type": "Button",
-                    "id": "953d1f51-f9ee-4dba-b4df-7027db373115",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -152,28 +134,6 @@
                     "action": "Move_Player_2",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "25cf012c-f6ff-4b7a-9a82-956d48516138",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Grow_Player_1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2904f96d-7d16-44b0-830e-df7346cb6045",
-                    "path": "<Keyboard>/rightShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Grow_Player_2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }

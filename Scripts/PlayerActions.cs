@@ -44,24 +44,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Grow_Player_1"",
-                    ""type"": ""Button"",
-                    ""id"": ""4926b276-cf4a-4df6-b4b5-5eb2362cb96a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Grow_Player_2"",
-                    ""type"": ""Button"",
-                    ""id"": ""953d1f51-f9ee-4dba-b4df-7027db373115"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -174,28 +156,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""Move_Player_2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""25cf012c-f6ff-4b7a-9a82-956d48516138"",
-                    ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Grow_Player_1"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2904f96d-7d16-44b0-830e-df7346cb6045"",
-                    ""path"": ""<Keyboard>/rightShift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Grow_Player_2"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -206,8 +166,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_Snake = asset.FindActionMap("Snake", throwIfNotFound: true);
         m_Snake_Move_Player_1 = m_Snake.FindAction("Move_Player_1", throwIfNotFound: true);
         m_Snake_Move_Player_2 = m_Snake.FindAction("Move_Player_2", throwIfNotFound: true);
-        m_Snake_Grow_Player_1 = m_Snake.FindAction("Grow_Player_1", throwIfNotFound: true);
-        m_Snake_Grow_Player_2 = m_Snake.FindAction("Grow_Player_2", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -271,16 +229,12 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private List<ISnakeActions> m_SnakeActionsCallbackInterfaces = new List<ISnakeActions>();
     private readonly InputAction m_Snake_Move_Player_1;
     private readonly InputAction m_Snake_Move_Player_2;
-    private readonly InputAction m_Snake_Grow_Player_1;
-    private readonly InputAction m_Snake_Grow_Player_2;
     public struct SnakeActions
     {
         private @PlayerActions m_Wrapper;
         public SnakeActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move_Player_1 => m_Wrapper.m_Snake_Move_Player_1;
         public InputAction @Move_Player_2 => m_Wrapper.m_Snake_Move_Player_2;
-        public InputAction @Grow_Player_1 => m_Wrapper.m_Snake_Grow_Player_1;
-        public InputAction @Grow_Player_2 => m_Wrapper.m_Snake_Grow_Player_2;
         public InputActionMap Get() { return m_Wrapper.m_Snake; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -296,12 +250,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Move_Player_2.started += instance.OnMove_Player_2;
             @Move_Player_2.performed += instance.OnMove_Player_2;
             @Move_Player_2.canceled += instance.OnMove_Player_2;
-            @Grow_Player_1.started += instance.OnGrow_Player_1;
-            @Grow_Player_1.performed += instance.OnGrow_Player_1;
-            @Grow_Player_1.canceled += instance.OnGrow_Player_1;
-            @Grow_Player_2.started += instance.OnGrow_Player_2;
-            @Grow_Player_2.performed += instance.OnGrow_Player_2;
-            @Grow_Player_2.canceled += instance.OnGrow_Player_2;
         }
 
         private void UnregisterCallbacks(ISnakeActions instance)
@@ -312,12 +260,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Move_Player_2.started -= instance.OnMove_Player_2;
             @Move_Player_2.performed -= instance.OnMove_Player_2;
             @Move_Player_2.canceled -= instance.OnMove_Player_2;
-            @Grow_Player_1.started -= instance.OnGrow_Player_1;
-            @Grow_Player_1.performed -= instance.OnGrow_Player_1;
-            @Grow_Player_1.canceled -= instance.OnGrow_Player_1;
-            @Grow_Player_2.started -= instance.OnGrow_Player_2;
-            @Grow_Player_2.performed -= instance.OnGrow_Player_2;
-            @Grow_Player_2.canceled -= instance.OnGrow_Player_2;
         }
 
         public void RemoveCallbacks(ISnakeActions instance)
@@ -339,7 +281,5 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     {
         void OnMove_Player_1(InputAction.CallbackContext context);
         void OnMove_Player_2(InputAction.CallbackContext context);
-        void OnGrow_Player_1(InputAction.CallbackContext context);
-        void OnGrow_Player_2(InputAction.CallbackContext context);
     }
 }

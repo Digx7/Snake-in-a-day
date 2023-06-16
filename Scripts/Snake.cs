@@ -13,6 +13,7 @@ public class Snake : CustomMonoBehaviorWrapper
 
     [SerializeField] private VoidEventChannelSO growRequestChannelSo;
     [SerializeField] private IntEventChannelSO playerDeathChannelSo;
+    [SerializeField] private IntEventChannelSO playerGotFruitChannelSo;
 
     private void Awake()
     {
@@ -22,16 +23,17 @@ public class Snake : CustomMonoBehaviorWrapper
         this.GetComponent<TrailRenderer>().colorGradient = trailGradient;
 
         this.GetComponent<CollisionDetector>().OnHit.AddListener(Kill);
+        this.GetComponent<CollisionDetector>().OnRecieveFruit.AddListener(AddSegment);
     }
 
     private void OnEnable()
     {
-        growRequestChannelSo.OnEventRaised += () => AddSegment();
+        // growRequestChannelSo.OnEventRaised += () => AddSegment();
     }
 
     private void OnDisable()
     {
-        growRequestChannelSo.OnEventRaised -= () => AddSegment();
+        // growRequestChannelSo.OnEventRaised -= () => AddSegment();
     }
 
     public void AddSegment()
@@ -48,6 +50,8 @@ public class Snake : CustomMonoBehaviorWrapper
 
         // Add it to the tail
         allSegments.Add(newSegment.transform);
+
+        playerGotFruitChannelSo.RaiseEvent(ID);
     }
 
     private void Kill()
