@@ -6,13 +6,13 @@ using UnityEngine.Events;
 [CreateAssetMenu(menuName = "ScriptableObjects/Channels/Player Value Update Channel")]
 public class PlayerValueUpdateChannelSO : ScriptableObject
 {
-    public UnityAction<int,int> OnEventRaised;
+    public UnityAction<Player,int> OnEventRaised;
 
-    public void RaiseEvent(int ID, int value)
+    public void RaiseEvent(Player player, int value)
     {
         if (OnEventRaised != null)
         {
-            OnEventRaised.Invoke(ID, value);
+            OnEventRaised.Invoke(player, value);
         }
     }
 }

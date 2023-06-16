@@ -9,6 +9,7 @@ public class PlayerUIHelper : CustomMonoBehaviorWrapper
     public void setID (int ID) 
     {
         this.ID = ID;
+        Refresh();
     }
     [SerializeField] private PlayerValueUpdateChannelSO livesChannelSo;
     [SerializeField] private PlayerValueUpdateChannelSO scoreChannelSo;
@@ -24,7 +25,7 @@ public class PlayerUIHelper : CustomMonoBehaviorWrapper
         Refresh();
     }
 
-    public void Refresh()
+    private void Refresh()
     {
         nameTMP.text = "Player " + ID;
     }
@@ -40,30 +41,30 @@ public class PlayerUIHelper : CustomMonoBehaviorWrapper
     private void OnEnable()
     {
         // set up events
-        livesChannelSo.OnEventRaised += ( (ID, lives) => RenderLives(ID, lives));
-        scoreChannelSo.OnEventRaised += ( (ID, score) => RenderScore(ID, score));
+        livesChannelSo.OnEventRaised += ( (player, lives) => RenderLives(player, lives));
+        scoreChannelSo.OnEventRaised += ( (player, score) => RenderScore(player, score));
         playerLostChannelSo.OnEventRaised += ( (ID) => RenderLost(ID));
     }
 
     private void OnDisable()
     {
         // remove events
-        livesChannelSo.OnEventRaised -= ( (ID, lives) => RenderLives(ID, lives));
-        scoreChannelSo.OnEventRaised -= ( (ID, score) => RenderScore(ID, score));
+        livesChannelSo.OnEventRaised -= ( (player, lives) => RenderLives(player, lives));
+        scoreChannelSo.OnEventRaised -= ( (player, score) => RenderScore(player, score));
         playerLostChannelSo.OnEventRaised -= ( (ID) => RenderLost(ID));
     }
 
-    private void RenderLives(int ID, int lives)
+    private void RenderLives(Player player, int lives)
     {
-        if(IDMatches(ID))
+        if(IDMatches(player))
         {
             livesTMP.text = "Lives " + lives;
         }
     }
 
-    private void RenderScore(int ID, int score)
+    private void RenderScore(Player player, int score)
     {
-        if(IDMatches(ID))
+        if(IDMatches(player))
         {
             scoreTMP.text = "Score " + score;
         }
@@ -80,6 +81,15 @@ public class PlayerUIHelper : CustomMonoBehaviorWrapper
     private bool IDMatches(int ID)
     {
         if(ID == this.ID)
+        {
+            return true;
+        }
+        else return false;
+    }
+
+    private bool IDMatches(Player player)
+    {
+        if(player.ID == this.ID)
         {
             return true;
         }

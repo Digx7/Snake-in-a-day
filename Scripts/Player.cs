@@ -5,10 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Player")]
 public class Player : ScriptableObject
 {
-    [SerializeField] private int ID;
-    [SerializeField] private int score;
-    [SerializeField] private int multiplier = 1;
-    [SerializeField] private int lives;
+    public int ID;
+    public int score;
+    public int multiplier = 1;
+    public int lives;
     [SerializeField] private IntEventChannelSO playerDeathChannelSo;
     [SerializeField] private IntEventChannelSO playerGotFruitChannelSo;
     [SerializeField] private IntEventChannelSO playerLostChannelSo;
@@ -31,7 +31,7 @@ public class Player : ScriptableObject
         if(ID == this.ID)
         {
             score += (GlobalConstants.FRUIT_VALUE * multiplier);
-            playerScoreUpdateChannelSO.RaiseEvent(ID, score);
+            playerScoreUpdateChannelSO.RaiseEvent(this, score);
         }
     }
 
@@ -40,7 +40,7 @@ public class Player : ScriptableObject
         if(ID == this.ID)
         {
             lives--;
-            playerLivesUpdateChannelSO.RaiseEvent(ID, lives);
+            playerLivesUpdateChannelSO.RaiseEvent(this, lives);
             if(lives == 0) playerLostChannelSo.RaiseEvent(ID);
         }
     }

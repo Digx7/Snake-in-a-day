@@ -109,7 +109,7 @@ MonoBehaviour:
   speed: 10
   direction: {x: 0, y: 0}
   deadZone: {x: 0, y: 0}
-  InputChannelSo: {fileID: 11400000, guid: 90fde176d42416142bc6d6938dea272c, type: 2}
+  InputChannelSo: {fileID: 0}
 --- !u!50 &7835935419398947975
 Rigidbody2D:
   serializedVersion: 4
@@ -178,7 +178,6 @@ MonoBehaviour:
   allSegments: []
   segmentPrefab: {fileID: 5956591796831682795, guid: 5cf7fe84d5674754c8c419de1548f9f7, type: 3}
   deathParticlesPrefab: {fileID: 3256675830577454385, guid: 2ae7e4ab20bdad64295e293454771070, type: 3}
-  growRequestChannelSo: {fileID: 11400000, guid: 687a1dceb17b71d4faf46469000dd42e, type: 2}
   playerDeathChannelSo: {fileID: 11400000, guid: a82feb91611db804e9994dbaac276f30, type: 2}
   playerGotFruitChannelSo: {fileID: 11400000, guid: 657f39e1f94831d4bb058d5d2e48ed62, type: 2}
 --- !u!96 &7835935419398947973

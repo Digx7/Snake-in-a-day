@@ -44,6 +44,24 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Move_Player_3"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""b49ffbbe-c936-4780-983d-e2bbc152ac21"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Move_Player_4"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""7237d5cd-1280-462c-b906-ecf430cba251"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -103,7 +121,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""WASD"",
+                    ""name"": ""Arrows"",
                     ""id"": ""3fd3aec9-084f-4cb1-86b4-93dedf9c22c8"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
@@ -156,6 +174,116 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""Move_Player_2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""YGHJ"",
+                    ""id"": ""824c9cb1-3275-4312-9230-8144d58bfcc9"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move_Player_3"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""11445a75-2a16-4490-824f-6bbb0959f48d"",
+                    ""path"": ""<Keyboard>/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move_Player_3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""3a464e02-ff25-49fd-bdaa-9a46d6c706d9"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move_Player_3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""8f73e26b-5e3f-4357-80c4-730844ede76b"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move_Player_3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""97cb2d1d-a21a-469e-81aa-a65cf61192b4"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move_Player_3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""PL;'"",
+                    ""id"": ""4e36ad79-e40c-4d0c-9176-3338385a33ed"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move_Player_4"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""63930fa6-3bdf-45c4-a274-dbb9b4b45f76"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move_Player_4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""d96d1e64-cbf2-4b1b-b20c-aee7225f3fa9"",
+                    ""path"": ""<Keyboard>/semicolon"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move_Player_4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""2e065d70-704b-4219-9633-d25a57407c39"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move_Player_4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""711b38ba-d6a1-44d1-ba53-0d53eef173c4"",
+                    ""path"": ""<Keyboard>/quote"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move_Player_4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -166,6 +294,8 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_Snake = asset.FindActionMap("Snake", throwIfNotFound: true);
         m_Snake_Move_Player_1 = m_Snake.FindAction("Move_Player_1", throwIfNotFound: true);
         m_Snake_Move_Player_2 = m_Snake.FindAction("Move_Player_2", throwIfNotFound: true);
+        m_Snake_Move_Player_3 = m_Snake.FindAction("Move_Player_3", throwIfNotFound: true);
+        m_Snake_Move_Player_4 = m_Snake.FindAction("Move_Player_4", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,12 +359,16 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private List<ISnakeActions> m_SnakeActionsCallbackInterfaces = new List<ISnakeActions>();
     private readonly InputAction m_Snake_Move_Player_1;
     private readonly InputAction m_Snake_Move_Player_2;
+    private readonly InputAction m_Snake_Move_Player_3;
+    private readonly InputAction m_Snake_Move_Player_4;
     public struct SnakeActions
     {
         private @PlayerActions m_Wrapper;
         public SnakeActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move_Player_1 => m_Wrapper.m_Snake_Move_Player_1;
         public InputAction @Move_Player_2 => m_Wrapper.m_Snake_Move_Player_2;
+        public InputAction @Move_Player_3 => m_Wrapper.m_Snake_Move_Player_3;
+        public InputAction @Move_Player_4 => m_Wrapper.m_Snake_Move_Player_4;
         public InputActionMap Get() { return m_Wrapper.m_Snake; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -250,6 +384,12 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Move_Player_2.started += instance.OnMove_Player_2;
             @Move_Player_2.performed += instance.OnMove_Player_2;
             @Move_Player_2.canceled += instance.OnMove_Player_2;
+            @Move_Player_3.started += instance.OnMove_Player_3;
+            @Move_Player_3.performed += instance.OnMove_Player_3;
+            @Move_Player_3.canceled += instance.OnMove_Player_3;
+            @Move_Player_4.started += instance.OnMove_Player_4;
+            @Move_Player_4.performed += instance.OnMove_Player_4;
+            @Move_Player_4.canceled += instance.OnMove_Player_4;
         }
 
         private void UnregisterCallbacks(ISnakeActions instance)
@@ -260,6 +400,12 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Move_Player_2.started -= instance.OnMove_Player_2;
             @Move_Player_2.performed -= instance.OnMove_Player_2;
             @Move_Player_2.canceled -= instance.OnMove_Player_2;
+            @Move_Player_3.started -= instance.OnMove_Player_3;
+            @Move_Player_3.performed -= instance.OnMove_Player_3;
+            @Move_Player_3.canceled -= instance.OnMove_Player_3;
+            @Move_Player_4.started -= instance.OnMove_Player_4;
+            @Move_Player_4.performed -= instance.OnMove_Player_4;
+            @Move_Player_4.canceled -= instance.OnMove_Player_4;
         }
 
         public void RemoveCallbacks(ISnakeActions instance)
@@ -281,5 +427,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     {
         void OnMove_Player_1(InputAction.CallbackContext context);
         void OnMove_Player_2(InputAction.CallbackContext context);
+        void OnMove_Player_3(InputAction.CallbackContext context);
+        void OnMove_Player_4(InputAction.CallbackContext context);
     }
 }
