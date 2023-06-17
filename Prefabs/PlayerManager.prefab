@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowLogging: 0
-  players:
+  players: []
+  numberOfPlayers: 1
+  allPossiblePlayers:
   - {fileID: 11400000, guid: b77f39498e1d0f54e81f8f7d2a1bfc45, type: 2}
   - {fileID: 11400000, guid: b3d4f14718a542a4a83276fb2f9eaa01, type: 2}
   - {fileID: 11400000, guid: 9f5967b9c658a3a4a88ba767621d7f0e, type: 2}
@@ -57,3 +59,5 @@ MonoBehaviour:
   lostChannel: {fileID: 11400000, guid: aeeb63055c9af7d4e9dbaf8e6cef9b88, type: 2}
   gameStateRequestChannelSO: {fileID: 11400000, guid: 481a6035816a3a74bb0b2b96da76c308, type: 2}
   setUpChannel: {fileID: 11400000, guid: 7ed678b47686a904e9ba6375681401f6, type: 2}
+  setNumberOfPlayersChannel: {fileID: 11400000, guid: 7da93cb74e158e6459c13c3c39877a89, type: 2}
+  playerWhoWonChannel: {fileID: 11400000, guid: 09d72db6dd519224281959ba14f71fc7, type: 2}

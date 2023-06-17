@@ -17,6 +17,16 @@ public class InputHandler : Singleton<InputHandler>
         base.Awake();
 
         playerActions = new PlayerActions();
+    }
+
+    private void OnEnable()
+    {
+        if(playerActions == null)
+        {
+            return;
+        }
+        
+        playerActions.Enable();
 
         playerActions.Snake.Move_Player_1.performed += ( (context) => Player1InputChannelSO.RaiseEvent(context.ReadValue<Vector2>()) );
         playerActions.Snake.Move_Player_2.performed += ( (context) => Player2InputChannelSo.RaiseEvent(context.ReadValue<Vector2>()) );
@@ -24,13 +34,18 @@ public class InputHandler : Singleton<InputHandler>
         playerActions.Snake.Move_Player_4.performed += ( (context) => Player4InputChannelSo.RaiseEvent(context.ReadValue<Vector2>()) );
     }
 
-    private void OnEnable()
-    {
-        playerActions.Enable();
-    }
-
     private void OnDisable()
     {
+        if(playerActions == null)
+        {
+            return;
+        }
+        
         playerActions.Disable();
+
+        playerActions.Snake.Move_Player_1.performed -= ( (context) => Player1InputChannelSO.RaiseEvent(context.ReadValue<Vector2>()) );
+        playerActions.Snake.Move_Player_2.performed -= ( (context) => Player2InputChannelSo.RaiseEvent(context.ReadValue<Vector2>()) );
+        playerActions.Snake.Move_Player_3.performed -= ( (context) => Player3InputChannelSo.RaiseEvent(context.ReadValue<Vector2>()) );
+        playerActions.Snake.Move_Player_4.performed -= ( (context) => Player4InputChannelSo.RaiseEvent(context.ReadValue<Vector2>()) );
     }
 }

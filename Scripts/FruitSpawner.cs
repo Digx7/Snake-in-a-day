@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FruitSpawner : CustomMonoBehaviorWrapper
+public class FruitSpawner : Singleton<FruitSpawner>
 {
     [SerializeField] private GameObject fruitPrefab;
     [SerializeField] private Vector2 spawnRange;

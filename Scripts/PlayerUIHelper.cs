@@ -20,6 +20,14 @@ public class PlayerUIHelper : CustomMonoBehaviorWrapper
     [SerializeField] private TextMeshProUGUI scoreTMP;
     [SerializeField] private TextMeshProUGUI deadTMP;
 
+    public void setColor (Color color)
+    {
+        nameTMP.color = color;
+        livesTMP.color = color;
+        scoreTMP.color = color;
+        deadTMP.color = color;
+    }
+
     private void Awake()
     {
         Refresh();
@@ -74,7 +82,17 @@ public class PlayerUIHelper : CustomMonoBehaviorWrapper
     {
         if(IDMatches(ID))
         {
-            deadTMP.gameObject.SetActive(true);
+            try
+            {
+                deadTMP.gameObject.SetActive(true);
+            }
+            catch (System.Exception)
+            {
+                if(deadTMP == null)
+                {
+                    Log("For some rease deadTMP is " + deadTMP);
+                }
+            }
         }
     }
 
