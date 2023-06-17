@@ -10,9 +10,13 @@ Play snake alone or with friends on one keyboard!
 
 Controls
           Movement
+          
 Player 1 - WASD
+
 Player 2 - Arrows
+
 Player 3 - YGHJ
+
 Player 4 - PL;'
 
 =========================================
